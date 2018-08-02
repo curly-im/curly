@@ -1,3 +1,11 @@
+Project structure
+-----------------
+
+- `auth/` contains authentication service (used for OAuth login and validating users)
+- `signalling/` contains signalling server (based on WebSockets), a service that transports everything that cannot be transported peer-to-peer (user's contact list updates, ICE servers configuration, peers offers and answers used to establish peer-to-peer connection)
+- `frontend/` contains web frontend app written in React
+- `nginx/` contains development Nginx configuration and self-signed certificates (we need them to make WebRTC work in browsers)
+
 Installing for Development
 --------------------------
 
@@ -17,4 +25,4 @@ To run containers, call `docker-compose up`, optionally followed with `-d` flag 
 Next, run frontend dev server: `cd frontend && yarn start`
 
 If running for the first time, you will need to add security exceptions for our self-signed certificates.
-Access `https://curly.test` and `https://signalling.curly.test` from browser(s) to add the exxceptions.
+Access `https://curly.test` and `https://signalling.curly.test` from browser(s) to add the exceptions.
