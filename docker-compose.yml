@@ -1,0 +1,16 @@
+version: '3'
+services:
+  signalling:
+    container_name: signalling
+    build: ./signalling/
+    ports:
+      - "3001:80"
+    environment:
+      - NODE_ENV=development
+  auth:
+    container_name: auth
+    build: ./auth/
+    ports:
+      - "3002:80"
+    environment:
+      - NODE_ENV=development
