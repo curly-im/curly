@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/forever app.js",
+    "dev": "node app.js | ./node_modules/.bin/pino"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^1.28.1",
+    "forever": "^0.15.3",
+    "pino": "^4.10.2",
+    "request-promise-native": "^1.0.5",
+    "toml": "^2.3.3",
+    "twilio": "^3.10.0",
+    "uuid": "^3.1.0",
+    "ws": "^3.3.1"
+  }
+}
