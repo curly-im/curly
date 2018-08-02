@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Message from '../styles/Message.css';
+import Message from './Message';
 
 export default function Messages({ messages=[], contact={} }) {
     if (!messages.length) return (<div className="messages">No messages yet</div>);
