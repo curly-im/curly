@@ -1,0 +1,24 @@
+.sidebar-header {
+  font-size: 90%;
+  text-align: right;
+  justify-content: flex-end;
+  margin-bottom: 40px;
+}
+
+.sidebar-header .current-user-name {
+  display: block;
+}
+
+.sidebar-header .user-actions ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-header .user-actions ul li {
+  display: inline-block;
+}
+
+.sidebar-header .user-actions ul li:not(:last-child) {
+  margin-right: 10px;
+}

@@ -1,0 +1,22 @@
+.conversation-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.conversation-section .header {
+    align-self: flex-start;
+    width: 100%;
+}
+
+.conversation-section .messages {
+    align-self: stretch;
+    flex-basis: 85%;
+    overflow-y: auto;
+}
+
+.conversation-section .message-input {
+    align-self: flex-end;
+    width: 100%;
+}

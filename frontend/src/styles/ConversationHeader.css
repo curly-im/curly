@@ -1,0 +1,5 @@
+.conversation-header .user-name {
+    display: block;
+    font-size: 2rem;
+    padding: 0 0 20px;
+}

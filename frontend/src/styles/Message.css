@@ -1,0 +1,4 @@
+.message.incoming + .message.incoming .sender-name,
+.message.outgoing + .message.outgoing .sender-name {
+    display: none;
+}

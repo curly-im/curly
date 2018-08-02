@@ -1,0 +1,8 @@
+.sidebar-container {
+  border-right: 1px solid #aeaeae;
+}
+
+.conversation-view-container {
+  width: 75%;
+  padding: 20px;
+}
