@@ -1,14 +1,5 @@
-//@flow
-import type { Action } from '../actions/types';
+export default function contacts(state = [], action) {
+    if (action.type !== 'SET_CONTACTS') return state;
 
-export type Contact = {
-  name: string
-};
-
-type State = Array<Contact>;
-
-export default function contacts(state = [], action: Action): State {
-  if (action.type !== 'SET_CONTACTS') return state;
-
-  return action.contacts;
+    return action.contacts;
 }

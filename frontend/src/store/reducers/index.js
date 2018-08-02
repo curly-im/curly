@@ -1,5 +1,4 @@
-// @flow
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 
 import appState from './appState';
 import contacts from './contacts';

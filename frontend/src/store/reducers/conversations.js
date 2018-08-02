@@ -1,39 +1,31 @@
-//@flow
-import type { Action } from '../actions/types';
-
-type State = {
-  current: {},
-  all: []
-};
-
-function getInitialState(): State {
-  return {
-    current: {},
-    all: []
-  };
+function getInitialState() {
+    return {
+        current: {},
+        all: []
+    };
 }
 
-export default function conversations(state: State = getInitialState(), action: Action): State {
-  const onAddConversation = () => {
-    return {
-      ...state, 
-      
-        all: [...state.all, action.conversation] 
+export default function conversations(state = getInitialState(), action) {
+    const onAddConversation = () => {
+        return {
+            ...state,
+
+            all: [...state.all, action.conversation]
+        };
     };
-  };
-  const onSetCurrentConversation = () => {
-    return {
-      ...state,
-      current: action.conversation
-    }
-  };
-  const actionToResult = new Map([
-    [ 'ADD_CONVERSATION', onAddConversation ],
-    [ 'SET_CURRENT_CONVERSATION', onSetCurrentConversation ]
-  ]);
-  const allActionTypes = [...actionToResult.keys()];
+    const onSetCurrentConversation = () => {
+        return {
+            ...state,
+            current: action.conversation
+        };
+    };
+    const actionToResult = new Map([
+        [ 'ADD_CONVERSATION', onAddConversation ],
+        [ 'SET_CURRENT_CONVERSATION', onSetCurrentConversation ]
+    ]);
+    const allActionTypes = [...actionToResult.keys()];
 
-  if (!allActionTypes.includes(action.type)) return state;
+    if (!allActionTypes.includes(action.type)) return state;
 
-  return actionToResult.get(action.type)();
+    return actionToResult.get(action.type)();
 }
