@@ -1,10 +1,10 @@
-import { changeSmile } from './MessageInput';
+import { changeTextToEmoji } from './MessageInput';
 
 test('Message Input', () => {
     it('should support Emoji', () => {
         const rawString = ':)';
 
-        const emoji = changeSmile(rawString);
+        const emoji = changeTextToEmoji(rawString);
 
         expect(emoji).toBe('🙂');
     });
