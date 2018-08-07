@@ -2,10 +2,10 @@ import React from 'react';
 
 import '../styles/MessageInput.css';
 
-export function changeSmile(str) {
+export function changeTextToEmoji(messageText) {
     const supportedEmojisRegExp = /:\)|:D|;\)|:\|:P|8-\)|:\(/;
 
-    return str.replace(supportedEmojisRegExp, rawEmoji => {
+    return messageText.replace(supportedEmojisRegExp, rawEmoji => {
         if (rawEmoji === ":)") {
             return '🙂';
         }
@@ -13,7 +13,7 @@ export function changeSmile(str) {
             return '😁';
         }
         if (rawEmoji === ";)") {
-            return '😉'
+            return '😉';
         }
         if (rawEmoji === ":|") {
             return '😐';
@@ -42,7 +42,7 @@ export default function MessageInput({ onSendMessage }) {
     };
 
     const handleChange = () => {
-        inputElement.value = changeSmile(inputElement.value);
+        inputElement.value = changeTextToEmoji(inputElement.value);
     };
 
     return (
