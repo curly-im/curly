@@ -13,7 +13,7 @@ export function changeSmile(str) {
             return '😁';
         }
         if (rawEmoji === ";)") {
-            return '😉'
+            return '😉';
         }
         if (rawEmoji === ":|") {
             return '😐';
@@ -42,7 +42,9 @@ export default function MessageInput({ onSendMessage }) {
     };
 
     const handleChange = () => {
+        const { selectionStart, selectionEnd } = inputElement;
         inputElement.value = changeSmile(inputElement.value);
+        inputElement.setSelectionRange(selectionStart, selectionEnd);
     };
 
     return (
