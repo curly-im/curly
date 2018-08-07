@@ -3,28 +3,33 @@ import React from 'react';
 import '../styles/MessageInput.css';
 
 export function changeSmile(str) {
-    if (str === ":)") {
-        return '🙂';
-    }
-    if (str === ":D") {
-        return '😁';
-    }
-    if (str === ";)") {
-        return '😉'
-    }
-    if (str === ":|") {
-        return '😐';
-    }
-    if (str === ":P") {
-        return '😛';
-    }
-    if (str === "8-)") {
-        return '😎';
-    }
-    if (str === ":(") {
-        return '😞';
-    }
-    return str;
+    const supportedEmojisRegExp = /:\)|:D|;\)|:\|:P|8-\)|:\(/;
+
+    return str.replace(supportedEmojisRegExp, rawEmoji => {
+        if (rawEmoji === ":)") {
+            return '🙂';
+        }
+        if (rawEmoji === ":D") {
+            return '😁';
+        }
+        if (rawEmoji === ";)") {
+            return '😉'
+        }
+        if (rawEmoji === ":|") {
+            return '😐';
+        }
+        if (rawEmoji === ":P") {
+            return '😛';
+        }
+        if (rawEmoji === "8-)") {
+            return '😎';
+        }
+        if (rawEmoji === ":(") {
+            return '😞';
+        }
+
+        return rawEmoji;
+    });
 }
 
 export default function MessageInput({ onSendMessage }) {
@@ -37,7 +42,7 @@ export default function MessageInput({ onSendMessage }) {
     };
 
     const handleChange = () => {
-        inputElement.value = changeSmile(inputElement.value); 
+        inputElement.value = changeSmile(inputElement.value);
     };
 
     return (
@@ -51,4 +56,3 @@ export default function MessageInput({ onSendMessage }) {
         </div>
     );
 }
-
