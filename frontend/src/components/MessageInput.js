@@ -3,28 +3,28 @@ import React from 'react';
 import '../styles/MessageInput.css';
 
 function changeSmile(str) {
-  if (str === ":)") {
-    return '🙂';
-  }
-  if (str === ":D") {
-    return '😁';
-  }
-  if (str === ";)") {
-    return '😉'
-  }
-  if (str === ":|") {
-    return '😐';
-  }
-  if (str === ":P") {
-    return '😛';
-  }
-  if (str === "8-)") {
-    return '😎';
-  }
-  if (str === ":(") {
-    return '😞';
-  }
-  return str;
+    if (str === ":)") {
+        return '🙂';
+    }
+    if (str === ":D") {
+        return '😁';
+    }
+    if (str === ";)") {
+        return '😉'
+    }
+    if (str === ":|") {
+        return '😐';
+    }
+    if (str === ":P") {
+        return '😛';
+    }
+    if (str === "8-)") {
+        return '😎';
+    }
+    if (str === ":(") {
+        return '😞';
+    }
+    return str;
 }
 
 export default function MessageInput({ onSendMessage }) {
@@ -36,8 +36,8 @@ export default function MessageInput({ onSendMessage }) {
         inputElement.value = '';
     };
 
-    function handleChange() {
-       inputElement.value = changeSmile(inputElement.value); 
+    const handleChange = () => {
+        inputElement.value = changeSmile(inputElement.value); 
     };
 
     return (
