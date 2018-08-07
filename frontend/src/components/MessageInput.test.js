@@ -4,7 +4,6 @@ test('Message Input', () => {
     it('should support Emoji', () => {
         const rawString = ':)';
 
-        // TODO: implement test here
         const emoji = changeSmile(rawString);
 
         expect(emoji).toBe('🙂');
