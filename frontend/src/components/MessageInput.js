@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../styles/MessageInput.css';
 
-function changeSmile(str) {
+export function changeSmile(str) {
     if (str === ":)") {
         return '🙂';
     }
@@ -51,3 +51,4 @@ export default function MessageInput({ onSendMessage }) {
         </div>
     );
 }
+

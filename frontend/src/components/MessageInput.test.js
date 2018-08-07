@@ -5,5 +5,8 @@ test('Message Input', () => {
         const rawString = ':)';
 
         // TODO: implement test here
+        const emoji = changeSmile(rawString);
+
+        expect(emoji).toBe('🙂');
     });
 });
