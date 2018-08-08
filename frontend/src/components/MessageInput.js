@@ -3,7 +3,7 @@ import React from 'react';
 import '../styles/MessageInput.css';
 
 export function changeTextToEmoji(messageText) {
-    const supportedEmojisRegExp = /:\)|:D|;\)|:\|:P|8-\)|:\(/;
+    const supportedEmojisRegExp = /:\)|:D|;\)|:\||:P|8-\)|:\(/;
 
     return messageText.replace(supportedEmojisRegExp, rawEmoji => {
         if (rawEmoji === ":)") {
