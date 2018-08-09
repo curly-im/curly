@@ -5,7 +5,8 @@ import '../styles/LinkButton.css'
 class LinkButton extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {label: props.label,
+        this.state = {
+        label: props.label,
         onClick: props.onClick}
     }
 
