@@ -30,7 +30,8 @@ export async function verify() {
 }
 
 export function logout() {
-    Cookies.expire(loginCookieName);
+    Cookies.expire(loginCookieName, 'curly.test');
+    console.log('TEST');
 }
 
 export default {
