@@ -30,8 +30,8 @@ export async function verify() {
 }
 
 export function logout() {
-    Cookies.expire(loginCookieName, 'curly.test');
-    console.log('TEST');
+    Cookies.expire(loginCookieName, { domain: window.location.host });
+    window.location.reload(); //TODO: remove it, change appState instead
 }
 
 export default {
