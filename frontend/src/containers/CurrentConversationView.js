@@ -46,13 +46,24 @@ async function getOrCreatePeer(remoteUuid, currentUser, iceServers) {
 }
 
 export function CurrentConversationView({ currentConversation, currentUser, iceServers, messages, dispatchMessage }) {
-    const onOutgoingMessage = async (message) => {
+    const sendMessage = async (type, message) => {
         const remoteUuid = currentConversation.contact.uuid;
         const peer = await getOrCreatePeer(remoteUuid, currentUser, iceServers);
 
-        const outgoingMessage = Message.create(messageTypes.text, message);
+        const outgoingMessage = Message.create(type, message);
+
         peer.send(JSON.stringify(outgoingMessage));
         dispatchMessage(remoteUuid, outgoingMessage);
+    };
+
+    const onOutgoingMessage = async ({text, code }) => {
+        if (text) {
+            await sendMessage(messageTypes.text, text);
+        }
+
+        if (code) {
+            await sendMessage(messageTypes.code, code);
+        }
     };
 
     return (

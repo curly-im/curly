@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "codemirror": "^5.39.2",
     "cookies-js": "^1.2.3",
     "flow-bin": "^0.76.0",
     "react": "^16.4.1",

@@ -1,5 +1,6 @@
 export const messageTypes = {
-    text: Symbol('message/text')
+    text: 'text',
+    code: 'code'
 };
 
 function validateType(type) {

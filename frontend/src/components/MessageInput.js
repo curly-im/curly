@@ -1,5 +1,7 @@
 import React from 'react';
 
+import CodeEditor from './CodeEditor';
+
 import '../styles/MessageInput.css';
 
 export function changeTextToEmoji(messageText) {
@@ -34,10 +36,15 @@ export function changeTextToEmoji(messageText) {
 
 export default function MessageInput({ onSendMessage }) {
     let inputElement = null;
+    let code = '';
+
     const onFormSubmit = (e) => {
         e.preventDefault();
 
-        onSendMessage(inputElement.value);
+        onSendMessage({
+            text: inputElement.value,
+            code
+        });
         inputElement.value = '';
     };
 
@@ -47,6 +54,8 @@ export default function MessageInput({ onSendMessage }) {
         inputElement.setSelectionRange(selectionStart, selectionEnd);
     };
 
+    const handleCodeChange = (codeEditorValue) => code = codeEditorValue;
+
     return (
         <div className="message-input">
           <form onSubmit={onFormSubmit}>
@@ -55,6 +64,7 @@ export default function MessageInput({ onSendMessage }) {
               Send
             </button>
           </form>
+          <CodeEditor onChange={handleCodeChange}/>
         </div>
     );
 }
