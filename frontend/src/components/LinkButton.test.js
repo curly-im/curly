@@ -5,9 +5,9 @@ test('LinkButton', () => {
         const label = 'test';
         const buttonLink = shallow(<LinkButton label={label}/>);
 
-    expect(buttonLink.text()).toEqual(label);
+        expect(buttonLink.text()).toEqual(label);
 
-    }) 
+    }); 
 
     it('should render', () => {
         const mockCallBack = jest.fn();
@@ -15,5 +15,5 @@ test('LinkButton', () => {
 
         buttonLink.find('button').simulate('click');
         expect(mockCallBack.mock.calls.length).toEqual(1);
-    })
-})
+    });
+});

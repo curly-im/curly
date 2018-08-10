@@ -14,7 +14,7 @@ export default function SidebarHeader({ currentUser }) {
             <nav className="user-actions">
                 <ul>
                   <li>Settings</li>
-                  <LinkButton onClick={logout} label="logout" />
+                  <li><LinkButton onClick={logout} label="logout" /></li>
                 </ul>
             </nav>
         </header>
