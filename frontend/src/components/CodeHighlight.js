@@ -17,7 +17,7 @@ export default function CodeHighlight({ value, language }) {
             <span className={prefixedClassName} key={items.length + 1}>{token}</span>
         );
     };
-    console.log('mode', mode);
+
     CodeMirror.runMode(value, mode ? mode.mime : language, onNewElement);
 
     return (
