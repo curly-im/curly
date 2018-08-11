@@ -13,7 +13,6 @@ export default class CodeEditor extends Component {
         this.onChange = props.onChange;
         this.state = {
             value: this.props.value,
-            readOnly: this.props.readOnly,
             mode: this.props.mode
         };
     }
@@ -21,8 +20,7 @@ export default class CodeEditor extends Component {
     componentDidMount() {
         this.codeMirrorInstance = CodeMirror(this.editorElement, {
             mode: this.state.mode || 'javascript',
-            value: this.state.value || '',
-            readOnly: this.state.readOnly
+            value: this.state.value || ''
         });
         this.codeMirrorInstance.on('change', () => {
             this.onChange({
@@ -30,6 +28,12 @@ export default class CodeEditor extends Component {
                 mode: this.codeMirrorInstance.getMode().name
             });
         });
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.value !== this.props.value) {
+            this.codeMirrorInstance.setValue(this.props.value);
+        }
     }
 
     render() {
