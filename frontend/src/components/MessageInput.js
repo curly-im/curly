@@ -57,27 +57,25 @@ export default function MessageInput({ onSendMessage }) {
     const handleCodeChange = (codeEditorValue) => code = codeEditorValue;
 
     let editorVisible = false;
-
-    const editorClassName = editorVisible ? '' : 'hidden';
-
-    const writeCodeSpanClassName = editorVisible ? 'hidden' : '';
+    const editorClassName = () => editorVisible ? '' : 'hidden';
+    const writeCodeSpanClassName = () => editorVisible ? 'hidden' : '';
 
     const toggleEditorVisibility = () => {
-        editorVisible.toggle();  
+        editorVisible = !editorVisible;
     };
 
     return (
         <div className="message-input">
-          <form onSubmit={onFormSubmit}>
-            <input onChange={handleChange} type="text" ref={el => inputElement = el}/>
-            <button>
-              Send
-            </button>
-          </form>
-          <div>
-                <span onClick={toggleEditorVisibility}></span>
-                <CodeEditor className="hidden editorClassName writeCodeSpanClassName" onChange={handleCodeChange}/>
-          </div>
+            <form onSubmit={onFormSubmit}>
+                <input onChange={handleChange} type="text" ref={el => inputElement = el}/>
+                    <button>
+                        Send
+                    </button>
+            </form>
+            <div>
+                <span className={writeCodeSpanClassName()} onClick={toggleEditorVisibility}>Write code</span>
+                <CodeEditor className={editorClassName()} onChange={handleCodeChange}/>
+            </div>
         </div>
     );
 }
