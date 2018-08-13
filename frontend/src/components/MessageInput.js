@@ -56,6 +56,16 @@ export default function MessageInput({ onSendMessage }) {
 
     const handleCodeChange = (codeEditorValue) => code = codeEditorValue;
 
+    let editorVisible = false;
+
+    const editorClassName = editorVisible ? '' : 'hidden';
+
+    const writeCodeSpanClassName = editorVisible ? 'hidden' : '';
+
+    const toggleEditorVisibility = () => {
+        editorVisible.toggle();  
+    };
+
     return (
         <div className="message-input">
           <form onSubmit={onFormSubmit}>
@@ -64,7 +74,10 @@ export default function MessageInput({ onSendMessage }) {
               Send
             </button>
           </form>
-          <CodeEditor onChange={handleCodeChange}/>
+          <div>
+                <span onClick={toggleEditorVisibility}></span>
+                <CodeEditor className="hidden editorClassName writeCodeSpanClassName" onChange={handleCodeChange}/>
+          </div>
         </div>
     );
 }
