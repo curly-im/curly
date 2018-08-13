@@ -14,9 +14,6 @@ services:
       - /usr/share/nginx/html
     labels:
       com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: "true"
-    environment:
-      - LETSENCRYPT_HOST=signalling.curly.im,auth.curly.im
-      - LETSENCRYPT_EMAIL=taheto@o2.pl
     networks:
       - proxy-tier
 
@@ -32,6 +29,8 @@ services:
     environment:
       - NODE_ENV=production
       - VIRTUAL_HOST=signalling.curly.im
+      - LETSENCRYPT_HOST=signalling.curly.im
+      - LETSENCRYPT_EMAIL=taheto@o2.pl
     networks:
       - proxy-tier
 
@@ -39,6 +38,8 @@ services:
     environment:
       - NODE_ENV=production
       - VIRTUAL_HOST=auth.curly.im
+      - LETSENCRYPT_HOST=auth.curly.im
+      - LETSENCRYPT_EMAIL=taheto@o2.pl
     networks:
       - proxy-tier
 
