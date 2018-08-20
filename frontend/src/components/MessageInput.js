@@ -1,5 +1,7 @@
 import React from 'react';
 
+import CodeEditor from './CodeEditor';
+
 import '../styles/MessageInput.css';
 
 export function changeTextToEmoji(messageText) {
@@ -32,29 +34,49 @@ export function changeTextToEmoji(messageText) {
     });
 }
 
-export default function MessageInput({ onSendMessage }) {
-    let inputElement = null;
-    const onFormSubmit = (e) => {
-        e.preventDefault();
+export default class MessageInput extends React.Component {
+    inputElement = null;
+    codeConfig = '';
 
-        onSendMessage(inputElement.value);
-        inputElement.value = '';
-    };
+    constructor(props) {
+        const { onSendMessage } = props;
 
-    const handleChange = () => {
-        const { selectionStart, selectionEnd } = inputElement;
-        inputElement.value = changeTextToEmoji(inputElement.value);
-        inputElement.setSelectionRange(selectionStart, selectionEnd);
-    };
+        super(props);
+        this.onSendMessage = onSendMessage;
+    }
 
-    return (
-        <div className="message-input">
-          <form onSubmit={onFormSubmit}>
-            <input onChange={handleChange} type="text" ref={el => inputElement = el}/>
-            <button>
-              Send
-            </button>
-          </form>
-        </div>
-    );
+    render() {
+        const onFormSubmit = (e) => {
+            e.preventDefault();
+
+            this.onSendMessage({
+                text: this.inputElement.value,
+                code: this.codeConfig
+            });
+
+            this.inputElement.value = '';
+            this.codeConfig = { value: '' };
+        };
+
+        const handleChange = () => {
+            const { inputElement } = this;
+            const { selectionStart, selectionEnd } = inputElement;
+            inputElement.value = changeTextToEmoji(inputElement.value);
+            inputElement.setSelectionRange(selectionStart, selectionEnd);
+        };
+
+        const handleCodeChange = (codeEditorValue) => this.codeConfig = codeEditorValue;
+
+        return (
+            <div className="message-input">
+                <form onSubmit={onFormSubmit}>
+                    <input onChange={handleChange} type="text" ref={el => this.inputElement = el}/>
+                        <button>
+                            Send
+                        </button>
+                </form>
+                <CodeEditor onChange={handleCodeChange} value={this.codeConfig.value} />
+            </div>
+        );
+    }
 }

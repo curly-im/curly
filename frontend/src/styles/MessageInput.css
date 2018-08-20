@@ -5,3 +5,7 @@
 .message-input button {
     width: 100px;
 }
+
+.message-input .code-editor-wrapper {
+    border: 1px solid #aeaeae;
+}
