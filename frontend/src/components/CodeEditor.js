@@ -37,6 +37,6 @@ export default class CodeEditor extends Component {
     }
 
     render() {
-        return (<div ref={element => this.editorElement = element}></div>);
+        return (<div ref={element => this.editorElement = element} className="code-editor-wrapper"></div>);
     }
 }
