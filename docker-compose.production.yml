@@ -21,6 +21,17 @@ services:
     networks:
       - webproxy
 
+  frontend:
+    container_name: frontend
+    build: ./frontend/
+    environment:
+      - VIRTUAL_HOST=curly.im
+      - LETSENCRYPT_HOST=curly.im
+      - LETSENCRYPT_EMAIL=taheto@o2.pl
+      - VIRTUAL_PORT=80
+    networks:
+      - webproxy
+
 networks:
   webproxy:
     external:
