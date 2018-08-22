@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CodeEditor from './CodeEditor';
+import MessageInputCodeEditor from './MessageInputCodeEditor';
 
 import '../styles/MessageInput.css';
 
@@ -42,8 +42,11 @@ export default class MessageInput extends React.Component {
         const { onSendMessage } = props;
 
         super(props);
+        this.state = { isEditorVisible: false };
         this.onSendMessage = onSendMessage;
     }
+
+    updateEditorVisibility = (visible) => this.setState({ isEditorVisible: visible });
 
     render() {
         const onFormSubmit = (e) => {
@@ -56,6 +59,7 @@ export default class MessageInput extends React.Component {
 
             this.inputElement.value = '';
             this.codeConfig = { value: '' };
+            this.setState({ isEditorVisible: false });
         };
 
         const handleChange = () => {
@@ -75,7 +79,12 @@ export default class MessageInput extends React.Component {
                             Send
                         </button>
                 </form>
-                <CodeEditor onChange={handleCodeChange} value={this.codeConfig.value} />
+                <MessageInputCodeEditor
+                    isVisible={this.state.isEditorVisible}
+                    language="JavaScript"
+                    onChange={handleCodeChange}
+                    value={this.codeConfig.value}
+                    onVisibilityChange={this.updateEditorVisibility} />
             </div>
         );
     }
