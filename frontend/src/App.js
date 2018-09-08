@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect, Route, Switch } from 'react-router-dom';
 
 import store from './store';
 import Auth from './lib/auth';
 import Communication from './lib/communication';
 import * as Actions from './store/actions';
-import SessionLogin from './containers/SessionLogin';
 import MainView from './components/MainView';
+import SessionLogin from './containers/SessionLogin';
 
 import './styles/App.css';
 
@@ -34,7 +35,7 @@ async function setAppState(appState, dispatch) {
 }
 
 function renderView(appState) {
-    if (appState === 'notLoggedIn') return (<SessionLogin />);
+    if (appState === 'notLoggedIn') return (<Redirect to="/login" />);
 
     return (
         <MainView />
@@ -46,7 +47,11 @@ export function App({ appState, dispatch }) {
 
     return (
         <div className="App">
-          {renderView(appState)}
+            <Switch>
+                <Route path="/login" component={SessionLogin} />
+                <Route path="/conversation/:userId?" component={App} />
+            </Switch>
+            {renderView(appState)}
         </div>
     );
 }

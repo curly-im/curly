@@ -1,16 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import LoginView from '../components/LoginView';
 
 import Config from '../config';
 
-export function LoginScreen({ dispatch }) {
-  const githubAuthUrl = `https://github.com/login/oauth/authorize?scope=user:email&client_id=${Config.githubClientId}`;
+const mapStateToProps = state => {
+    return { appState: state.appState };
+};
 
-  return (
-    <LoginView githubAuthUrl={githubAuthUrl} />
-  );
+export function LoginScreen({ appState, dispatch }) {
+    const githubAuthUrl = `https://github.com/login/oauth/authorize?scope=user:email&client_id=${Config.githubClientId}`;
+
+    if (appState === 'notLoggedIn') {
+        return (
+            <LoginView githubAuthUrl={githubAuthUrl} />
+        );
+    }
+
+    return (
+        <Redirect to="/conversation" />
+    );
 }
 
-export default connect()(LoginScreen);
+export default connect(
+    mapStateToProps
+)(LoginScreen);
