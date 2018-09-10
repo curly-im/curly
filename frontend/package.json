@@ -5,6 +5,7 @@
   "dependencies": {
     "codemirror": "^5.39.2",
     "cookies-js": "^1.2.3",
+    "enzyme-adapter-react-16": "^1.5.0",
     "flow-bin": "^0.76.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
@@ -21,6 +22,6 @@
     "flow": "flow"
   },
   "devDependencies": {
-    "enzyme": "^3.3.0"
+    "enzyme": "^3.6.0"
   }
 }
