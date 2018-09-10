@@ -37,3 +37,32 @@ export function message({ contactId, message }) {
         message
     };
 }
+
+export function setUnreadMessagesIndicator({ contactId, count }) {
+    return {
+        type: 'SET_UNREAD_MESSAGES_INDICATOR',
+        contactId,
+        count
+    };
+}
+
+export function clearUnreadMessagesIndicator({ contactId }) {
+    return {
+        type: 'CLEAR_UNREAD_MESSAGES_INDICATOR',
+        contactId
+    };
+}
+
+export function incrementUnreadMessagesIndicator({ contactId }) {
+    return {
+        type: 'INCREMENT_UNREAD_MESSAGES_INDICATOR',
+        contactId
+    };
+}
+
+export function decrementUnreadMessagesIndicator({ contactId }) {
+    return {
+        type: 'DECREMENT_UNREAD_MESSAGES_INDICATOR',
+        contactId
+    };
+}
