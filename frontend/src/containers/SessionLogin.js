@@ -20,7 +20,7 @@ export function LoginScreen({ appState, dispatch }) {
     }
 
     return (
-        <Redirect to="/conversation" />
+        <Redirect to="/" />
     );
 }
 

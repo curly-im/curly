@@ -5,7 +5,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import store from './store';
 import App from './App';
-import SessionLogin from './containers/SessionLogin';
 
 import './styles/normalize.css';
 import './styles/skeleton.css';

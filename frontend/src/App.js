@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
+import PrivateRoute from './PrivateRoute';
 import store from './store';
 import Auth from './lib/auth';
 import Communication from './lib/communication';
@@ -15,12 +16,19 @@ const mapStateToProps = state => ({
     appState: state.appState
 });
 
+let communicationInitialized = false;
+
 function initCommunication() {
     const cookie = Auth.getCookie();
     Communication.init(store, Actions, cookie);
 }
 
 async function setAppState(appState, dispatch) {
+
+    if (appState === 'loggedIn') {
+        return;
+    }
+
     const authVerified = await Auth.verify();
 
     if (!authVerified.verified) {
@@ -28,34 +36,25 @@ async function setAppState(appState, dispatch) {
         return;
     }
 
-    if (appState === 'loggedIn') return;
-
     dispatch(Actions.setAppState('loggedIn'));
-    initCommunication();
-}
-
-function renderView(appState) {
-    if (appState === 'notLoggedIn') return (<Redirect to="/login" />);
-
-    return (
-        <MainView />
-    );
 }
 
 export function App({ appState, dispatch }) {
     setAppState(appState, dispatch);
 
+    if (appState === 'loggedIn' && !communicationInitialized) {
+        communicationInitialized = true;
+        initCommunication();
+    }
+
     return (
         <div className="App">
-            <Switch>
-                <Route path="/login" component={SessionLogin} />
-                <Route path="/conversation/:userId?" component={App} />
-            </Switch>
-            {renderView(appState)}
+            <Route path="/login" component={SessionLogin} />
+            <PrivateRoute appState={appState} exact path="/" component={MainView} />
         </div>
     );
 }
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps
-)(App);
+)(App));
