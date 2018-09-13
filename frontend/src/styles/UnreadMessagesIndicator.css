@@ -1,0 +1,16 @@
+.unread-messages-counter {
+    border: 1px solid blue;
+    color: blue;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 10px;
+}
+
+.unread-messages-count {
+    vertical-align: 0%;
+}
+
+
+
