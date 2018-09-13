@@ -14,13 +14,12 @@ describe('UnreadMessagesIndicator', () => {
         });
 
     it('should show unread messages count', () => {
-        const expectedMessagesCount = {count: 1}
-        const unreadMessagesIndicator = shallow(<UnreadMessagesIndicator count={count} />);
-        expect(unreadMessagesIndicator.find('div').toEqual(expectedMessagesCount.count));
+        const expectedMessagesCount = 1;
+        const unreadMessagesIndicator = shallow(<UnreadMessagesIndicator count={expectedMessagesCount} />);
+        expect(Number(unreadMessagesIndicator.find('div').text())).toEqual(expectedMessagesCount);
         });
 
     it('should check if component dissapears when count is equal zero', () => {
-
         const unreadMessagesIndicator = shallow(<UnreadMessagesIndicator count={0} />);
         expect(unreadMessagesIndicator.find('div').hasClass('hidden')).toEqual(true);
         });
