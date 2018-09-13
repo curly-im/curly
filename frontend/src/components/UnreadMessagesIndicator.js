@@ -7,7 +7,7 @@ export default function UnreadMessagesIndicator({count}) {
     let hiddenClass = count <= 0 ? 'hidden' : '';
 
       return (
-        <div className={hiddenClass} className='unread-messages-counter'>
+        <div className={`${hiddenClass} unread-messages-counter`}>
             <span className='unread-messages-count'>   
                 {count}
             </span>

@@ -56,6 +56,9 @@ function createOnSignal(store, actions) {
             const message = JSON.parse(data.toString());
 
             console.log('Data', remoteUuid, message);
+            
+            dispatch(actions.incrementUnreadMessagesIndicator({ contactId }) )
+
             dispatch(actions.message({
                 contactId: remoteUuid,
                 message: { ...message, ...{ incoming: true } }
