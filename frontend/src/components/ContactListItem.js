@@ -2,11 +2,11 @@ import React from 'react';
 
 import UnreadMessageIndicator from './UnreadMessagesIndicator'
 
-export default function ContactListItem({ contact, onClick }) {
+export default function ContactListItem({ contact, onClick, count }) {
     return (
         <li onClick={() => onClick(contact)}>
           {contact.name}
-          <UnreadMessageIndicator count={contact.count}/>
+          <UnreadMessageIndicator count={count}/>
         </li>
     );
 }
