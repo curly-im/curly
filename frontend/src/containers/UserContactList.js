@@ -5,7 +5,8 @@ import ContactList from '../components/ContactList';
 
 const mapStateToProps = state => {
     return {
-        contacts: state.contacts
+        contacts: state.contacts,
+        count: state.unreadMessagesIndicator
     };
 };
 const mapDispatchToProps = dispatch => {
