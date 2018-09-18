@@ -57,8 +57,8 @@ function createOnSignal(store, actions) {
 
             console.log('Data', remoteUuid, message);
 
-            dispatch(actions.incrementUnreadMessagesIndicator({ contactId: remoteUuid }) )
-
+            if (remoteUuid !== store.getState().conversations.current.userId) {dispatch(actions.incrementUnreadMessagesIndicator({ contactId: remoteUuid }) )}
+            
             dispatch(actions.message({
                 contactId: remoteUuid,
                 message: { ...message, ...{ incoming: true } }

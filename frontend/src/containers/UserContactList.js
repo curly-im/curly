@@ -1,14 +1,16 @@
 import { connect } from 'react-redux';
 
-import { addConversation, setCurrentConversation } from '../store/actions';
+import { addConversation, setCurrentConversation, clearUnreadMessagesIndicator} from '../store/actions';
 import ContactList from '../components/ContactList';
 
 const mapStateToProps = state => {
     return {
         contacts: state.contacts,
-        count: state.unreadMessagesIndicator
+        count: state.unreadMessagesIndicator,
+        current: state.conversations.current
     };
 };
+
 const mapDispatchToProps = dispatch => {
     return {
         onContactClick: contact => {
@@ -20,6 +22,7 @@ const mapDispatchToProps = dispatch => {
             };
             dispatch(addConversation(conversation));
             dispatch(setCurrentConversation(conversation));
+            dispatch(clearUnreadMessagesIndicator(contact.uuid));
         }
     };
 };
