@@ -2,11 +2,10 @@ import React from 'react';
 
 import ContactListItem from './ContactListItem';
 
-export default function ContactList({ contacts, onContactClick }) {
+export default function ContactList({ contacts, onContactClick, count }) {
     const items = contacts.map((contact, index) => (
-        <ContactListItem contact={contact} onClick={onContactClick} key={index} />
+        <ContactListItem contact={contact} onClick={onContactClick} key={index} count={count}/>
     ));
-
     return (
         <ul>
           {items}

@@ -9,7 +9,7 @@ import 'codemirror/mode/javascript/javascript';
 import 'codemirror/lib/codemirror.css';
 
 export default function CodeHighlight({ value, language }) {
-    const mode = CodeMirror.findModeByName(language);
+    const mode = language ? CodeMirror.findModeByName(language) : '';
     const items = [];
     const onNewElement = (token, style) => {
         const prefixedClassName = `cm-${style}`;
