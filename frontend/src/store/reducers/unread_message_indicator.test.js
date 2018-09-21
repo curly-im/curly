@@ -1,6 +1,6 @@
 import unreadMessagesIndicator from './unread_message_indicator';
 
-test('undread messages indicator reducer', () => {
+test('unread messages indicator reducer', () => {
     it('should return the initial state', () => {
         expect(unreadMessagesIndicator(undefined, {})).toEqual(new Map());
     });
