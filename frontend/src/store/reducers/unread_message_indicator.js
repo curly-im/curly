@@ -6,7 +6,11 @@ function set(state, action) {
 }
 
 function clear(state, action) {
-    return new Map(state).delete(action.contactId);
+    const copy =  new Map(state);
+
+    copy.delete(action.contactId);
+
+    return copy;
 }
 
 function increment(state, action) {

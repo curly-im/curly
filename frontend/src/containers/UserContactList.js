@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => {
             };
             dispatch(addConversation(conversation));
             dispatch(setCurrentConversation(conversation));
-            dispatch(clearUnreadMessagesIndicator(contact.uuid));
+            dispatch(clearUnreadMessagesIndicator({ contactId: contact.uuid }));
         }
     };
 };

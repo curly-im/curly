@@ -7,7 +7,6 @@ export default function ContactList({ contacts, onContactClick, count }) {
     const items = contacts.map((contact, index) => (
         <ContactListItem contact={contact} onClick={onContactClick} key={index} count={count}/>
     ));
-
     return (
         <ul>
           {items}
