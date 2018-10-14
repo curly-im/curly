@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Curly.im UI Patterns</title>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="patterns.css">
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <main>
+            <section>
+                <h1>Colors & Typography</h1>
+
+                <p>
+                    Brand color palette
+                </p>
+
+                <figure class="patterns brand-colors">
+                    <div class="ui bg-pink"></div>
+                    <div class="ui bg-darkblue"></div>
+                    <div class="ui bg-lightblue"></div>
+                    <div class="ui bg-white"></div>
+                    <div class="ui bg-black"></div>
+                </figure>
+
+                <p>
+                    TODO: Typography
+                </p>
+            </section>
+
+            <section>
+                <h1>Atoms</h1>
+                <section>
+                    <h2>Borders & Spacing</h2>
+
+                    <figure class="patterns">
+                        <div class="ui border padding">
+                            I have a border and padding
+                        </div>
+
+                        <div class="ui border padding border-radius">
+                            I have a border, padding and radius
+                        </div>
+
+                        <div class="ui border padding border-radius box-shadow">
+                            I have a border, padding, radius and shadow
+                        </div>
+
+                        <div class="ui border padding border-radius box-shadow margin">
+                            I have margin
+                        </div>
+
+                        <div class="ui border padding border-radius box-shadow margin-medium">
+                            I have medium margin
+                        </div>
+
+                        <div class="ui border padding border-radius box-shadow margin-large">
+                            I have large margin
+                        </div>
+                    </figure>
+                </section>
+
+                <section>
+                    <h2>Headers</h2>
+
+                    <p>
+                        A double header
+
+                        <div>
+                            <header class="ui">
+                                <h1>Welcome back</h1>
+                                <h2>Please Sign In to Continue</h2>
+                            </header>
+                        </div>
+                    </p>
+
+                    <p>
+                        Section header with hint text
+
+                        <div>
+                            <section class="ui">
+                                <header>
+                                    <h1>Section header</h1>
+                                    <span class="ui hint">
+                                        This is a hint text
+                                    </span>
+                                </header>
+
+                                Section content
+                            </section>
+                        </div>
+                </section>
+
+                <section>
+                    <h2>Buttons</h2>
+
+                    <p>
+                        Basic button:
+
+                        <div>
+                            <button class="ui basic">
+                                Sign in
+                            </button>
+                        </div>
+                    </p>
+
+                    <p>
+                        Primary button:
+
+                        <div>
+                            <button class="ui primary">
+                                Sign in
+                            </button>
+                        </div>
+                    </p>
+
+                    <p>
+                        Seconary button:
+
+                        <div>
+                            <button class="ui seconary">
+                                Sign in
+                            </button>
+                        </div>
+                    </p>
+
+                    <p>
+                        Important button:
+
+                        <div>
+                            <button class="ui important">
+                                Delete account
+                            </button>
+                        </div>
+                    </p>
+
+                    <p>
+                        Link-like button:
+
+                        <div>
+                            <button class="ui link-like">
+                                View more...
+                            </button>
+                        </div>
+                    </p>
+
+                    <p>
+                        Real link:
+
+                        <div>
+                            <a class="ui" href="#">
+                                Got to Top
+                            </a>
+                        </div>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Inputs</h2>
+
+                    <input type="text" class="ui">
+
+                    <p>
+                        Input with invalid value
+                        <div>
+                            <input type="email" value="aaa" class="ui">
+                        </div>
+                    </p>
+
+                    <p>
+                        Disabled input
+                        <div>
+                            <input type="text" value="I'm disabled" class="ui" disabled>
+                        </div>
+                    </p>
+
+                    <p>
+                        Select
+                        <div>
+                            <select class="ui">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                            </select>
+                        </div>
+                    </p>
+
+                    <p>
+                        Checkbox
+                        <div>
+                            <input type="checkbox" class="ui">
+                        </div>
+                    </p>
+
+                    <p>
+                        Radio Button
+                        <div>
+                            <input type="radio" class="ui">
+                        </div>
+                    </p>
+
+                    <p>
+                        Label
+                        <div>
+                            <label class="ui">
+                                <span>Email</span>
+                                <input type="text" class="ui">
+                            </label>
+                        </div>
+                    </p>
+
+                </section>
+
+                <section>
+                    <h2>Loading spinner</h2>
+
+                    <div class="ui spinner">
+
+                    </div>
+
+                </section>
+            </section>
+
+            <section>
+                <h1>Molecules</h1>
+
+                <section>
+                    <h2>Form</h2>
+
+                    Form is used to get user's input.
+
+                    <div>
+
+                        <div class="ui border border-radius box-shadow padding">
+                            <form>
+
+                                <label class="ui">
+                                    <span>
+                                        Full Name
+                                    </span>
+                                    <input type="text" class="ui">
+                                </label>
+                                <label class="ui">
+                                    <span>
+                                        Country
+                                    </span>
+                                    <select class="ui">
+                                        <option>Poland</option>
+                                        <option>Czechia</option>
+                                        <option>Slovakia</option>
+                                        <option>Lithuania</option>
+                                    </select>
+                                </label>
+                                <label class="ui">
+                                    <span>
+                                        Email
+                                    </span>
+                                    <input type="email" class="ui">
+                                </label>
+                                <label class="ui">
+                                    <span>
+                                        Password
+                                    </span>
+                                    <input type="password" class="ui">
+                                </label>
+                                <label class="ui">
+                                    <input type="checkbox" class="ui">
+                                    I am a new user
+                                </label>
+
+                                <button class="ui seconary" role="reset">
+                                    Reset
+                                </button>
+
+                                <button class="ui primary">
+                                    Create account
+                                </button>
+
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>View</h2>
+
+                    <p>
+                        View is used to display some kind of content on the whole page.
+                    </p>
+
+                    <div style="width: 100%; height: 50vh" class="ui border">
+
+                        <!-- View: -->
+                        <div class="ui view">
+                            <div class="ui view-content">
+
+                                <header class="ui">
+                                    <h1>Thank you for using Curly</h1>
+                                    <h2>We are happy you like it</h2>
+                                </header>
+
+                                <p>
+                                    Content is displayed here
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+            </section> <!-- Molecules -->
+        </main>
+
+    </body>
+</html>

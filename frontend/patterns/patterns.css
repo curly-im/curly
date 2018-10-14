@@ -1,0 +1,25 @@
+body {
+    margin: 1em 2em;
+}
+
+figure.patterns * {
+    margin: 1em 0;
+}
+
+.patterns.brand-colors {
+    display: flex;
+    padding: 0;
+    margin: auto 0;
+    width: 100%;
+    height: 5vh;
+}
+
+figure.patterns.brand-colors * {
+    margin: 0;
+}
+
+.patterns.brand-colors div {
+    flex-basis: 0;
+    flex-grow: 1;
+    height: 100%;
+}
