@@ -26,7 +26,7 @@
     --border-style: solid;
     --border-color: rgba(var(--brand-black), .5);
     --border: var(--border-width) var(--border-style) var(--border-color);
-    --border-radius: 6px;
+    --border-radius: 3px;
 
     /* Shadow */
     --shadow-out: 0 0 5px rgba(var(--brand-black), .3);
@@ -209,13 +209,16 @@ a.ui {
 /* Inputs */
 
 input.ui {
-    border: var(--border);
+    border: var(--border-width) var(--border-style) transparent;
     border-radius: var(--border-radius);
+    background: rgba(var(--brand-black), .05);
+    outline: none;
     padding: var(--spacing-small);
 }
 
 input.ui:focus {
     border-color: var(--brand-color-darkblue);
+    background-color: var(--brand-color-white);
 }
 
 input.ui:invalid {
@@ -230,12 +233,12 @@ select.ui {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border: var(--border);
+    border: var(--border-width) var(--border-style) transparent;
     border-radius: var(--border-radius);
     --background-arrow-width: 7px;
     --padding-right: calc(var(--spacing-small) + var(--background-arrow-width));
 
-    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC") no-repeat scroll calc(100% - var(--background-arrow-width)) center transparent;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC") calc(100% - var(--background-arrow-width)) center no-repeat rgba(var(--brand-black), .05);
 
     padding: var(--spacing-small) var(--padding-right) var(--spacing-small) var(--spacing-small);
 }
@@ -245,6 +248,7 @@ input[type=checkbox].ui {
     -moz-appearance: none;
     appearance: none;
 
+    border: var(--border);
     padding: var(--spacing-small);
 }
 
@@ -258,6 +262,7 @@ input[type=radio].ui {
     -moz-appearance: none;
     appearance: none;
 
+    border: var(--border);
     padding: var(--spacing-small);
     border-radius: 100%;
 }
