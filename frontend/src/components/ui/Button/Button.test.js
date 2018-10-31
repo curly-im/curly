@@ -12,4 +12,11 @@ test('Button', () => {
    
         expect(button.hasClass('primary').toEqual(true));
     });
+
+    it("should render text", () => {
+        const buttonText = 'test';
+        const button = shallow(<Button> {buttonText} </Button> )
+
+        expect(button.text().toEqual(buttonText));
+    });
 })

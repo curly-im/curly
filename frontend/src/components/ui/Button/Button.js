@@ -11,7 +11,7 @@ export default class Button extends Component {
     render() {
         return (
             <button className={`ui ${this.props.variant}`}>
-
+                {this.props.children};
             </button>
         )
     }
